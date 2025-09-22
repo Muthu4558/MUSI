@@ -1,8 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Code, Monitor, Server, Database, Zap, Rocket, Layers } from "lucide-react";
+import Web from "../assets/Web/web-development.png"
 
-const heroImg = "https://images.unsplash.com/photo-1526244434298-88fcbcb066b5?auto=format&fit=crop&w=1400&q=80";
+const heroImg = Web;
 const projectImgs = [
   "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
   "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80",
@@ -40,7 +41,7 @@ export default function WebDevelopment() {
             className="space-y-6"
           >
             <p className="inline-block px-3 py-1 rounded-full bg-[#6c845d] text-white font-semibold text-sm">
-             • Web Development
+              • Web Development
             </p>
 
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-gray-900">
@@ -68,18 +69,24 @@ export default function WebDevelopment() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ scale: 0.98, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="rounded-3xl overflow-hidden shadow-2xl"
-          >
-            <img
+          <div className="relative w-72 h-72 md:w-96 md:h-96">
+            <motion.div
+              animate={{
+                scale: [1, 1.1, 1],
+                rotate: [0, 8, -8, 0],
+              }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-6 -left-8 w-full h-full bg-gradient-to-tr from-[#6c845d] to-[#d4e0c0] rounded-full blur-2xl opacity-70"
+            ></motion.div>
+
+            <motion.img
               src={heroImg}
-              alt="web development hero"
-              className="w-full h-[420px] object-cover"
+              alt="Digital Solutions"
+              className="relative w-full h-full object-contain z-10 drop-shadow-xl"
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
-          </motion.div>
+          </div>
         </div>
       </header>
 
@@ -92,10 +99,10 @@ export default function WebDevelopment() {
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { title: "Landing Pages", desc: "Fast, conversion-first", icon: <Code size={24}/> },
-            { title: "SaaS Dashboards", desc: "Multi-tenant, secure", icon: <Monitor size={24}/> },
-            { title: "E-commerce", desc: "Fast checkout & analytics", icon: <Server size={24}/> },
-            { title: "PWA / Mobile Web", desc: "Offline & installable", icon: <Zap size={24}/> },
+            { title: "Landing Pages", desc: "Fast, conversion-first", icon: <Code size={24} /> },
+            { title: "SaaS Dashboards", desc: "Multi-tenant, secure", icon: <Monitor size={24} /> },
+            { title: "E-commerce", desc: "Fast checkout & analytics", icon: <Server size={24} /> },
+            { title: "PWA / Mobile Web", desc: "Offline & installable", icon: <Zap size={24} /> },
           ].map((card) => (
             <motion.div
               key={card.title}
