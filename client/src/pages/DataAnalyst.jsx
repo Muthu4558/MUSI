@@ -1,0 +1,212 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Code, Monitor, Server, Database, Zap, Rocket, Layers } from "lucide-react";
+
+const heroImg = "https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=80";
+const projectImgs = [
+  "https://images.unsplash.com/photo-1581092330040-7be1e6ecdfc4?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1591696205602-9c4853c8f591?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1601597117433-41d9e7dfb5e7?auto=format&fit=crop&w=1200&q=80",
+];
+
+const analyticsServices = [
+  { title: "Data Cleaning", desc: "Ensure accurate, reliable datasets", icon: <Code size={24}/> },
+  { title: "Dashboards & Reports", desc: "Interactive visual insights", icon: <Monitor size={24}/> },
+  { title: "Power BI", desc: "Business intelligence at scale", icon: <Server size={24}/> },
+  { title: "KPIs & Metrics", desc: "Track performance effectively", icon: <Database size={24}/> },
+  { title: "Business Insights", desc: "Actionable recommendations", icon: <Zap size={24}/> },
+];
+
+const tools = [
+  { name: "Tableau", short: "Visual analytics platform", icon: <Monitor size={28} /> },
+  { name: "SQL", short: "Query and manage relational data", icon: <Database size={28} /> },
+  { name: "Python", short: "Data manipulation & analysis", icon: <Code size={28} /> },
+  { name: "Excel", short: "Spreadsheet modeling & calculations", icon: <Zap size={28} /> },
+  { name: "Looker Studio", short: "Custom dashboards & reports", icon: <Layers size={28} /> },
+];
+
+const processSteps = [
+  { title: "Collect Data", text: "Gather structured and unstructured datasets from multiple sources." },
+  { title: "Clean & Transform", text: "Remove inconsistencies, handle missing values, normalize formats." },
+  { title: "Analyze", text: "Use statistical methods, KPIs, and business metrics for insights." },
+  { title: "Visualize", text: "Dashboards, reports, and charts for stakeholders." },
+  { title: "Recommend", text: "Actionable insights to drive data-driven decisions." },
+];
+
+export default function DataAnalytics() {
+  return (
+    <div className="font-poppins antialiased text-gray-900" style={{ background: "linear-gradient(135deg, #f0f3ec 0%, #d4e0c0 50%, #6c845d 100%)" }}>
+
+      {/* HERO */}
+      <header className="relative overflow-hidden">
+        <div className="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-20 items-center">
+          <motion.div
+            initial={{ x: -30, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.7 }}
+            className="space-y-6"
+          >
+            <p className="inline-block px-3 py-1 rounded-full bg-[#6c845d] text-white font-semibold text-sm">
+             • Data Analytics
+            </p>
+
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-gray-900">
+              Transform your data into insights with <span className="text-[#6c845d]">Dashboards</span> and <span className="text-[#6c845d]">Reports</span>
+            </h1>
+
+            <p className="text-gray-700 max-w-xl">
+              We help organizations clean, analyze, and visualize data for better decision-making. Our solutions include dashboards, KPI tracking, business insights, and advanced analytics using modern tools.
+            </p>
+
+            <div className="flex gap-4">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 bg-[#6c845d] text-white px-5 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transform transition"
+              >
+                Start a Project
+                <Rocket size={16} />
+              </a>
+              <a
+                href="#projects"
+                className="inline-flex items-center gap-2 border border-[#6c845d] text-gray-900 px-5 py-3 hover:scale-105 rounded-full transition"
+              >
+                See Work
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ scale: 0.98, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="rounded-3xl overflow-hidden shadow-2xl"
+          >
+            <img
+              src={heroImg}
+              alt="data analytics hero"
+              className="w-full h-[420px] object-cover"
+            />
+          </motion.div>
+        </div>
+      </header>
+
+      {/* SERVICES */}
+      <section className="max-w-7xl mx-auto px-6 py-14">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">What we do</h2>
+        <p className="text-gray-700 max-w-3xl mb-12">
+          From cleaning raw data to creating business insights — our analytics services cover end-to-end data solutions.
+        </p>
+
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {analyticsServices.map((card) => (
+            <motion.div
+              key={card.title}
+              whileHover={{ scale: 1.05, y: -4 }}
+              className="bg-white/20 backdrop-blur-md border border-white/10 rounded-3xl p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition duration-300"
+            >
+              <div className="p-4 rounded-xl bg-[#6c845d] text-white inline-flex items-center justify-center w-12 h-12">
+                {card.icon}
+              </div>
+              <h3 className="text-gray-900 font-semibold text-lg relative group cursor-pointer">
+                {card.title}
+                <span className="block h-0.5 w-0 bg-[#6c845d] transition-all group-hover:w-full mt-1"></span>
+              </h3>
+              <p className="text-gray-700 text-sm">{card.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* TOOLS */}
+      <section className="py-14">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Tools We Use</h2>
+          <p className="text-gray-700 max-w-3xl mb-12">
+            Our analytics work relies on modern, industry-standard tools for data processing, visualization, and reporting.
+          </p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8">
+            {tools.map((t) => (
+              <motion.div
+                key={t.name}
+                whileHover={{ scale: 1.08, rotate: 2 }}
+                className="bg-white/20 backdrop-blur-md border border-white/10 p-4 rounded-2xl flex flex-col items-center gap-3 shadow-md hover:shadow-xl transition duration-300"
+              >
+                <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#6c845d] text-white text-2xl">
+                  {t.icon}
+                </div>
+                <h4 className="font-semibold text-gray-900 text-sm text-center">{t.name}</h4>
+                <p className="text-gray-700 text-xs text-center">{t.short}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section className="max-w-7xl mx-auto px-6 py-14">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Process</h2>
+        <div className="grid md:grid-cols-5 gap-6">
+          {processSteps.map((s, i) => (
+            <motion.div
+              key={s.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.12 }}
+              className="bg-white/20 backdrop-blur-md p-6 rounded-3xl border border-white/10 shadow-md hover:shadow-xl transition duration-300"
+            >
+              <div className="w-10 h-10 rounded-full bg-[#6c845d]/20 flex items-center justify-center text-[#6c845d] font-semibold mb-4">
+                {i + 1}
+              </div>
+              <h4 className="font-semibold text-gray-900 mb-2">{s.title}</h4>
+              <p className="text-gray-700 text-sm">{s.text}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* PROJECT GALLERY */}
+      <section id="projects" className="bg-white/10 py-14">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Selected Projects</h2>
+          <p className="text-gray-700 mb-8">
+            Real analytics projects with actionable impact — dashboards, reports, and business insights.
+          </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projectImgs.map((src, idx) => (
+              <motion.figure
+                key={idx}
+                whileHover={{ scale: 1.03 }}
+                className="relative rounded-2xl overflow-hidden shadow-2xl"
+              >
+                <img src={src} alt={`project-${idx}`} className="w-full h-64 object-cover" />
+                <figcaption className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent text-white">
+                  <h3 className="font-semibold">Project {idx + 1}</h3>
+                  <p className="text-sm text-gray-200">Analytics & Dashboard Implementation</p>
+                </figcaption>
+              </motion.figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <footer id="contact" className="py-16 px-6">
+        <div className="max-w-4xl mx-auto bg-[#6c845d]/20 p-8 rounded-3xl text-center backdrop-blur-md shadow-lg">
+          <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">Ready to analyze your data?</h3>
+          <p className="text-gray-700 max-w-2xl mx-auto mb-6">
+            Tell us your data story — we'll propose a lean plan with KPIs, dashboards, and actionable insights.
+          </p>
+          <a
+            href="mailto:contact@musitechhub.com?subject=Data%20Analytics%20Project"
+            className="inline-flex items-center gap-3 bg-[#6c845d] text-white px-6 py-3 rounded-full font-semibold shadow hover:scale-105 transition"
+          >
+            Email Us
+            <Rocket size={18} />
+          </a>
+        </div>
+      </footer>
+    </div>
+  );
+}
