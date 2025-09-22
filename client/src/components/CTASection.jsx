@@ -28,7 +28,7 @@ const ContactCTASection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <span className="text-black">Ready to Elevate</span><span className="text-[#6c845d]">Your Business?</span> 
+            <span className="text-black">Ready to Elevate</span><span className="text-[#6c845d]">Your Business?</span>
           </motion.h2>
 
           <motion.p
@@ -40,19 +40,19 @@ const ContactCTASection = () => {
             Book a free consultation with our experts and discover how we can take your ideas to the next level.
           </motion.p>
 
-          <motion.button
-            onClick={() => navigate("/contact")}
+          <motion.a
+            href="tel:6385931500"
             whileHover={{ scale: 1.05, boxShadow: "0px 0px 25px rgba(255,255,255,0.6)" }}
             whileTap={{ scale: 0.95 }}
             className="mt-6 px-10 py-4 bg-white text-[#6c845d] font-bold rounded-3xl flex items-center gap-3 shadow-lg hover:bg-white/90 transition-all duration-300 text-lg"
           >
-            <PhoneCall size={24} /> Book a Free Consultation
-          </motion.button>
+            <PhoneCall size={24} /> Free Consultation
+          </motion.a>
         </div>
 
         {/* Right: Contact Form + Info */}
         <div className="lg:w-1/2 bg-white/90 backdrop-blur-md rounded-3xl p-10 shadow-xl flex flex-col gap-6">
-          <h3 className="text-3xl font-bold text-gray-900 mb-4 flex items-center gap-2">Get in Touch <Send size={20}/></h3>
+          <h3 className="text-3xl font-bold text-gray-900 mb-4 flex items-center gap-2">Get in Touch <Send size={20} /></h3>
 
           {/* Contact Form */}
           <form className="flex flex-col gap-4">

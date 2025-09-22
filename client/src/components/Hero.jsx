@@ -1,7 +1,10 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import HeroImg from "../assets/hero-sec/hero-img.png";
 
 const Hero = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section className="relative flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-26">
       {/* Left Side Content */}
@@ -25,12 +28,12 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-wrap justify-center md:justify-start gap-4"
         >
-          <button className="px-7 py-3 bg-[#6c845d] text-white font-semibold rounded-full shadow-md hover:bg-[#5a6d4d] transition-all">
+          <button
+            className="px-7 py-3 bg-[#6c845d] text-white font-semibold rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition-all"
+            onClick={() => setIsModalOpen(true)}
+          >
             Get Started
           </button>
-          {/* <button className="px-7 py-3 bg-white border border-[#6c845d] text-[#6c845d] font-semibold rounded-full shadow-md hover:bg-[#f0f3ec] transition-all">
-            Learn More
-          </button> */}
         </motion.div>
       </motion.div>
 
@@ -42,30 +45,79 @@ const Hero = () => {
         className="md:w-1/2 mt-12 md:mt-0 flex justify-center relative"
       >
         <div className="relative w-72 h-72 md:w-96 md:h-96">
-          {/* Animated Blob Background */}
           <motion.div
             animate={{
               scale: [1, 1.1, 1],
               rotate: [0, 8, -8, 0],
             }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -top-6 -left-6 w-full h-full bg-gradient-to-tr from-[#6c845d] to-[#d4e0c0] rounded-full blur-2xl opacity-70"
           ></motion.div>
 
-          {/* Image with float animation */}
           <motion.img
             src={HeroImg}
             alt="Digital Solutions"
-            className="relative w-full h-full object-contain z-10 drop-shadow-lg"
+            className="relative w-full h-full object-contain z-10 drop-shadow-xl"
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />
         </div>
       </motion.div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            className="fixed inset-0 backdrop-blur-sm bg-opacity-50 flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="bg-white rounded-2xl shadow-2xl w-11/12 max-w-lg p-8 relative border border-gray-200"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Close Button */}
+              <button
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 font-bold text-2xl"
+                onClick={() => setIsModalOpen(false)}
+              >
+                &times;
+              </button>
+
+              {/* Form */}
+              <h2 className="text-3xl font-bold mb-6 text-gray-900 text-center">
+                Get Started
+              </h2>
+              <form className="flex flex-col gap-5">
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className="border border-gray-300 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#6c845d] focus:border-transparent shadow-sm transition"
+                />
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  className="border border-gray-300 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#6c845d] focus:border-transparent shadow-sm transition"
+                />
+                <textarea
+                  placeholder="Your Message"
+                  className="border border-gray-300 rounded-xl px-5 py-3 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-[#6c845d] focus:border-transparent shadow-sm transition"
+                ></textarea>
+                <button
+                  type="submit"
+                  className="px-6 py-3 bg-gradient-to-r from-[#6c845d] to-[#d4e0c0] text-white font-semibold rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition-all"
+                >
+                  Submit
+                </button>
+              </form>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

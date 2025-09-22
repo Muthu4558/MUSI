@@ -72,7 +72,7 @@ const ServicesTab = () => {
 
   const handleLearnMore = () => {
     const serviceSlug = services[activeIndex].title.toLowerCase().replace(/\s+/g, "-");
-    navigate(`/services/${serviceSlug}`);
+    navigate(`/${serviceSlug}`);
   };
 
   return (

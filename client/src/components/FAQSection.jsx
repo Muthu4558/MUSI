@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HelpCircle } from "lucide-react";
-import Illustration from "../assets/hero-sec/hero-img.png";
+import Illustration from "../assets/faq-home.png";
 
 const faqs = [
   {
