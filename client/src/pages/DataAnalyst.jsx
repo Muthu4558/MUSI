@@ -1,8 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Code, Monitor, Server, Database, Zap, Rocket, Layers } from "lucide-react";
+import DaImg from "../assets/Data-analyst/DA.png"
 
-const heroImg = "https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1400&q=80";
+const heroImg = DaImg;
 const projectImgs = [
   "https://images.unsplash.com/photo-1581092330040-7be1e6ecdfc4?auto=format&fit=crop&w=1200&q=80",
   "https://images.unsplash.com/photo-1591696205602-9c4853c8f591?auto=format&fit=crop&w=1200&q=80",
@@ -10,11 +11,11 @@ const projectImgs = [
 ];
 
 const analyticsServices = [
-  { title: "Data Cleaning", desc: "Ensure accurate, reliable datasets", icon: <Code size={24}/> },
-  { title: "Dashboards & Reports", desc: "Interactive visual insights", icon: <Monitor size={24}/> },
-  { title: "Power BI", desc: "Business intelligence at scale", icon: <Server size={24}/> },
-  { title: "KPIs & Metrics", desc: "Track performance effectively", icon: <Database size={24}/> },
-  { title: "Business Insights", desc: "Actionable recommendations", icon: <Zap size={24}/> },
+  { title: "Data Cleaning", desc: "Ensure accurate, reliable datasets", icon: <Code size={24} /> },
+  { title: "Dashboards & Reports", desc: "Interactive visual insights", icon: <Monitor size={24} /> },
+  { title: "Power BI", desc: "Business intelligence at scale", icon: <Server size={24} /> },
+  { title: "KPIs & Metrics", desc: "Track performance effectively", icon: <Database size={24} /> },
+  { title: "Business Insights", desc: "Actionable recommendations", icon: <Zap size={24} /> },
 ];
 
 const tools = [
@@ -47,7 +48,7 @@ export default function DataAnalytics() {
             className="space-y-6"
           >
             <p className="inline-block px-3 py-1 rounded-full bg-[#6c845d] text-white font-semibold text-sm">
-             • Data Analytics
+              • Data Analytics
             </p>
 
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-gray-900">
@@ -75,18 +76,31 @@ export default function DataAnalytics() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ scale: 0.98, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="rounded-3xl overflow-hidden shadow-2xl"
-          >
-            <img
+          {/* Right Section (Image) */}
+          <div className="relative flex justify-center items-center">
+            <motion.div
+              animate={{
+                scale: [1, 1.1, 1],
+                rotate: [0, 10, -10, 0],
+                x: [0, 10, -10, 0],
+                y: [0, -10, 10, 0],
+              }}
+              transition={{
+                duration: 12,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute w-72 h-72 md:w-96 md:h-96 bg-gradient-to-tr from-[#6c845d] to-[#d4e0c0] rounded-full blur-2xl opacity-70"
+            ></motion.div>
+
+            <motion.img
               src={heroImg}
-              alt="data analytics hero"
-              className="w-full h-[420px] object-cover"
+              alt="Digital Solutions"
+              className="relative w-96 h-96 md:w-96 md:h-96 object-contain z-10 drop-shadow-xl"
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
-          </motion.div>
+          </div>
         </div>
       </header>
 

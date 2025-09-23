@@ -34,6 +34,8 @@ export default function WebDevelopment() {
       {/* HERO */}
       <header className="relative overflow-hidden">
         <div className="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-20 items-center">
+
+          {/* Left Section */}
           <motion.div
             initial={{ x: -30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -45,11 +47,16 @@ export default function WebDevelopment() {
             </p>
 
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-gray-900">
-              Professional web apps built with <span className="text-[#6c845d]">HTML, CSS, JS</span> and the <span className="text-[#6c845d]">MERN</span> stack
+              Professional web apps built with{" "}
+              <span className="text-[#6c845d]">HTML, CSS, JS</span> and the{" "}
+              <span className="text-[#6c845d]">MERN</span> stack
             </h1>
 
             <p className="text-gray-700 max-w-xl">
-              We design and develop performant, accessible, and scalable web products — landing pages, dashboards, e-commerce, progressive web apps and admin panels. Low-cost, fast delivery and a youthful team that cares about your growth.
+              We design and develop performant, accessible, and scalable web
+              products — landing pages, dashboards, e-commerce, progressive web
+              apps and admin panels. Low-cost, fast delivery and a youthful team
+              that cares about your growth.
             </p>
 
             <div className="flex gap-4">
@@ -69,26 +76,35 @@ export default function WebDevelopment() {
             </div>
           </motion.div>
 
-          <div className="relative w-72 h-72 md:w-96 md:h-96">
+          {/* Right Section (Image) */}
+          <div className="relative flex justify-center items-center">
             <motion.div
               animate={{
                 scale: [1, 1.1, 1],
-                rotate: [0, 8, -8, 0],
+                rotate: [0, 10, -10, 0],
+                x: [0, 10, -10, 0],
+                y: [0, -10, 10, 0],
               }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-6 -left-8 w-full h-full bg-gradient-to-tr from-[#6c845d] to-[#d4e0c0] rounded-full blur-2xl opacity-70"
+              transition={{
+                duration: 12,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute w-72 h-72 md:w-96 md:h-96 bg-gradient-to-tr from-[#6c845d] to-[#d4e0c0] rounded-full blur-2xl opacity-70"
             ></motion.div>
 
             <motion.img
               src={heroImg}
               alt="Digital Solutions"
-              className="relative w-full h-full object-contain z-10 drop-shadow-xl"
+              className="relative w-96 h-96 md:w-96 md:h-96 object-contain z-10 drop-shadow-xl"
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
           </div>
+
         </div>
       </header>
+
 
       {/* WHAT WE BUILD */}
       <section className="max-w-7xl mx-auto px-6 py-14">
