@@ -1,12 +1,37 @@
+import { useState } from "react";
+import axios from "axios";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import { PhoneCall, Mail, Linkedin, Twitter, Instagram, Send } from "lucide-react";
+import toast, { Toaster } from "react-hot-toast";
 
 const ContactCTASection = () => {
-  const navigate = useNavigate();
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+
+  const handleChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess("");
+    try {
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/contact`, formData);
+      toast.success(data.message || "Message sent successfully!");
+      // setSuccess(data.message);
+      setFormData({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error(err.response?.data?.message || err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <section className="relative overflow-hidden">
+      {/* Toast Container */}
+      <Toaster position="bottom-right" reverseOrder={false} />
       {/* Decorative Background Shapes */}
       <motion.div
         className="absolute w-72 h-72 rounded-full bg-white/20 top-[-50px] left-[-50px] filter blur-3xl"
@@ -28,7 +53,8 @@ const ContactCTASection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <span className="text-black">Ready to Elevate</span><span className="text-[#6c845d]">Your Business?</span>
+            <span className="text-black">Ready to Elevate</span>
+            <span className="text-[#6c845d]">Your Business?</span>
           </motion.h2>
 
           <motion.p
@@ -52,33 +78,48 @@ const ContactCTASection = () => {
 
         {/* Right: Contact Form + Info */}
         <div className="lg:w-1/2 bg-white/90 backdrop-blur-md rounded-3xl p-10 shadow-xl flex flex-col gap-6">
-          <h3 className="text-3xl font-bold text-gray-900 mb-4 flex items-center gap-2">Get in Touch <Send size={20} /></h3>
+          <h3 className="text-3xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+            Get in Touch <Send size={20} />
+          </h3>
 
-          {/* Contact Form */}
-          <form className="flex flex-col gap-4">
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <input
               type="text"
+              name="name"
               placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
               className="p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#6c845d] outline-none"
+              required
             />
             <input
               type="email"
+              name="email"
               placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
               className="p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#6c845d] outline-none"
+              required
             />
             <textarea
+              name="message"
               placeholder="Your Message"
               rows={5}
+              value={formData.message}
+              onChange={handleChange}
               className="p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#6c845d] outline-none"
+              required
             ></textarea>
             <motion.button
               type="submit"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              disabled={loading}
               className="mt-2 bg-[#6c845d] text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </motion.button>
+            {success && <p className="text-green-600 mt-2">{success}</p>}
           </form>
 
           {/* Contact Info */}
@@ -97,7 +138,6 @@ const ContactCTASection = () => {
           </div>
         </div>
       </div>
-
     </section>
   );
 };
