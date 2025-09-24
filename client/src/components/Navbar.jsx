@@ -78,45 +78,44 @@ const Navbar = () => {
         ))}
 
         {/* Services Dropdown */}
-        {/* Services Dropdown */}
-<motion.li
-  className="relative cursor-pointer"
-  onMouseEnter={() => setServiceOpen(true)}
-  onMouseLeave={() => setServiceOpen(false)}
->
-  <div className="flex items-center gap-1">
-    Services
-    <ChevronDown
-      size={16}
-      className={`transition-transform ${serviceOpen ? "rotate-180" : ""}`}
-    />
-  </div>
+        <motion.li
+          className="relative cursor-pointer"
+          onMouseEnter={() => setServiceOpen(true)}
+          onMouseLeave={() => setServiceOpen(false)}
+        >
+          <div className="flex items-center gap-1">
+            Services
+            <ChevronDown
+              size={16}
+              className={`transition-transform ${serviceOpen ? "rotate-180" : ""}`}
+            />
+          </div>
 
-  {/* Dropdown */}
-  <AnimatePresence>
-    {serviceOpen && (
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{ duration: 0.25, ease: "easeInOut" }}
-        className="absolute top-8 left-0 w-60 bg-white/95 text-black rounded-xl shadow-lg overflow-hidden z-50"
-      >
-        {services.map((item, idx) => (
-          <motion.p
-            key={idx}
-            // whileHover={{ scale: 1.03, x: 6 }}
-            className="flex items-center gap-3 px-5 py-3 hover:bg-[#6c845d] hover:text-white transition-all cursor-pointer"
-            onClick={() => navigate(item.path)}
-          >
-            {item.icon}
-            {item.name}
-          </motion.p>
-        ))}
-      </motion.div>
-    )}
-  </AnimatePresence>
-</motion.li>
+          {/* Dropdown */}
+          <AnimatePresence>
+            {serviceOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25, ease: "easeInOut" }}
+                className="absolute top-8 left-0 w-60 bg-white/95 text-black rounded-xl shadow-lg overflow-hidden z-50"
+              >
+                {services.map((item, idx) => (
+                  <motion.p
+                    key={idx}
+                    // whileHover={{ scale: 1.03, x: 6 }}
+                    className="flex items-center gap-3 px-5 py-3 hover:bg-[#6c845d] hover:text-white transition-all cursor-pointer"
+                    onClick={() => navigate(item.path)}
+                  >
+                    {item.icon}
+                    {item.name}
+                  </motion.p>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.li>
 
 
       </ul>

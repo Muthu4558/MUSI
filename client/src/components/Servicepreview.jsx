@@ -25,7 +25,7 @@ const services = [
     content: ["Data Cleaning", "Dashboards & Reports", "Power BI", "KPIs & Metrics", "Business Insights"],
     tools: [
       { name: "Tableau", icon: <SiTableau /> },
-      { name: "SQL", icon: <FaGitAlt /> }, // placeholder
+      { name: "SQL", icon: <FaGitAlt /> },
       { name: "Python", icon: <FaPython /> },
       { name: "Excel", icon: <FaRegFileExcel /> },
       { name: "Looker Studio", icon: <SiGoogleanalytics /> },
@@ -39,7 +39,7 @@ const services = [
       { name: "Photoshop", icon: <SiAdobephotoshop /> },
       { name: "Illustrator", icon: <SiAdobeillustrator /> },
       { name: "Figma", icon: <SiFigma /> },
-      { name: "Canva", icon: <FaGitAlt /> }, // placeholder
+      { name: "Canva", icon: <FaGitAlt /> },
     ],
   },
   {
@@ -48,9 +48,9 @@ const services = [
     content: ["User-Centered Design", "Wireframes & Prototypes", "Interactive UI", "Cross-Platform Consistency", "High Conversion Interfaces"],
     tools: [
       { name: "Figma", icon: <SiFigma /> },
-      { name: "Adobe XD", icon: <SiAdobephotoshop /> }, // placeholder
-      { name: "Sketch", icon: <FaGitAlt /> }, // placeholder
-      { name: "InVision", icon: <FaGitAlt /> }, // placeholder
+      { name: "Adobe XD", icon: <SiAdobephotoshop /> },
+      { name: "Sketch", icon: <FaGitAlt /> },
+      { name: "InVision", icon: <FaGitAlt /> },
     ],
   },
   {
@@ -58,10 +58,10 @@ const services = [
     icon: <Video size={28} />,
     content: ["Marketing Videos", "Social Media Clips", "Tutorials & Explainers", "Color Grading", "Post-Production"],
     tools: [
-      { name: "Premiere Pro", icon: <FaGitAlt /> }, // placeholder
-      { name: "After Effects", icon: <FaGitAlt /> }, // placeholder
-      { name: "Final Cut Pro", icon: <FaGitAlt /> }, // placeholder
-      { name: "DaVinci Resolve", icon: <FaGitAlt /> }, // placeholder
+      { name: "Premiere Pro", icon: <FaGitAlt /> },
+      { name: "After Effects", icon: <FaGitAlt /> },
+      { name: "Final Cut Pro", icon: <FaGitAlt /> },
+      { name: "DaVinci Resolve", icon: <FaGitAlt /> },
     ],
   },
 ];
@@ -86,7 +86,6 @@ const ServicesTab = () => {
   return (
     <section className="py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-12">
-        {/* Section Title */}
         <motion.h2
           className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-gray-900"
           initial={{ opacity: 0, y: -20 }}
@@ -99,7 +98,6 @@ const ServicesTab = () => {
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Left Panel */}
           <div className="lg:w-1/2 relative bg-white/20 backdrop-blur-md rounded-3xl p-10 min-h-[400px] flex flex-col justify-center shadow-xl overflow-hidden">
-            {/* Decorative Shapes */}
             <motion.div
               className="absolute w-24 h-24 rounded-full bg-[#6c845d]/10 top-10 left-10"
               animate={{ y: [0, 10, 0] }}
@@ -136,7 +134,6 @@ const ServicesTab = () => {
                   ))}
                 </ul>
 
-                {/* Tools / Technologies with Icons */}
                 <div className="mb-6">
                   <h4 className="text-lg font-semibold text-gray-900 mb-2">Tools & Technologies:</h4>
                   <div className="flex flex-wrap gap-3">
@@ -153,7 +150,6 @@ const ServicesTab = () => {
                   </div>
                 </div>
 
-                {/* Learn More Button */}
                 <motion.button
                   onClick={() => handleNavigate(services[activeIndex].title)}
                   whileHover={{ scale: 1.05 }}
@@ -172,11 +168,11 @@ const ServicesTab = () => {
               <motion.div
                 key={index}
                 onMouseEnter={() => setActiveIndex(index)}
-                onClick={() => handleNavigate(service.title)}
-                className={`flex items-center gap-5 p-6 rounded-2xl cursor-pointer transition-all duration-500 ${activeIndex === index
+                className={`flex items-center gap-5 p-6 rounded-2xl cursor-pointer transition-all duration-500 ${
+                  activeIndex === index
                     ? "bg-[#6c845d] text-white shadow-2xl scale-105"
                     : "bg-white/80 text-gray-900 hover:bg-[#a3b897]/80 hover:scale-105"
-                  }`}
+                }`}
               >
                 <motion.div
                   className={`text-[#6c845d] ${activeIndex === index ? "text-white" : ""}`}
