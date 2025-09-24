@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Code, Palette, PenTool, BarChart3, Video } from "lucide-react";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaPython, FaGitAlt, FaRegFileExcel } from "react-icons/fa";
-import { SiMongodb, SiAdobephotoshop, SiFigma, SiAdobeillustrator, SiTableau, SiGoogleanalytics  } from "react-icons/si";
+import { SiMongodb, SiAdobephotoshop, SiFigma, SiAdobeillustrator, SiTableau, SiGoogleanalytics } from "react-icons/si";
 
 const services = [
   {
@@ -25,10 +25,10 @@ const services = [
     content: ["Data Cleaning", "Dashboards & Reports", "Power BI", "KPIs & Metrics", "Business Insights"],
     tools: [
       { name: "Tableau", icon: <SiTableau /> },
-      { name: "SQL", icon: <FaGitAlt /> }, // placeholder for SQL
+      { name: "SQL", icon: <FaGitAlt /> }, // placeholder
       { name: "Python", icon: <FaPython /> },
       { name: "Excel", icon: <FaRegFileExcel /> },
-      { name: "Looker Studio", icon: < SiGoogleanalytics /> },
+      { name: "Looker Studio", icon: <SiGoogleanalytics /> },
     ],
   },
   {
@@ -39,7 +39,7 @@ const services = [
       { name: "Photoshop", icon: <SiAdobephotoshop /> },
       { name: "Illustrator", icon: <SiAdobeillustrator /> },
       { name: "Figma", icon: <SiFigma /> },
-      { name: "Canva", icon: <FaGitAlt /> }, // placeholder for Canva
+      { name: "Canva", icon: <FaGitAlt /> }, // placeholder
     ],
   },
   {
@@ -48,7 +48,7 @@ const services = [
     content: ["User-Centered Design", "Wireframes & Prototypes", "Interactive UI", "Cross-Platform Consistency", "High Conversion Interfaces"],
     tools: [
       { name: "Figma", icon: <SiFigma /> },
-      { name: "Adobe XD", icon: <SiAdobephotoshop /> }, // placeholder for XD
+      { name: "Adobe XD", icon: <SiAdobephotoshop /> }, // placeholder
       { name: "Sketch", icon: <FaGitAlt /> }, // placeholder
       { name: "InVision", icon: <FaGitAlt /> }, // placeholder
     ],
@@ -70,9 +70,17 @@ const ServicesTab = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const navigate = useNavigate();
 
-  const handleLearnMore = () => {
-    const serviceSlug = services[activeIndex].title.toLowerCase().replace(/\s+/g, "-");
-    navigate(`/${serviceSlug}`);
+  const handleNavigate = (serviceTitle) => {
+    const slugMap = {
+      "Web Development": "web-development",
+      "Data Analytics": "data-analyst",
+      "Graphic Design": "graphic-design",
+      "UI / UX Design": "ui-ux",
+      "Video Editing": "video-editing",
+    };
+    const slug = slugMap[serviceTitle];
+    navigate(`/${slug}`);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
   return (
@@ -147,7 +155,7 @@ const ServicesTab = () => {
 
                 {/* Learn More Button */}
                 <motion.button
-                  onClick={handleLearnMore}
+                  onClick={() => handleNavigate(services[activeIndex].title)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="mt-2 px-6 py-3 bg-[#6c845d] text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
@@ -164,11 +172,11 @@ const ServicesTab = () => {
               <motion.div
                 key={index}
                 onMouseEnter={() => setActiveIndex(index)}
-                className={`flex items-center gap-5 p-6 rounded-2xl cursor-pointer transition-all duration-500 ${
-                  activeIndex === index
+                onClick={() => handleNavigate(service.title)}
+                className={`flex items-center gap-5 p-6 rounded-2xl cursor-pointer transition-all duration-500 ${activeIndex === index
                     ? "bg-[#6c845d] text-white shadow-2xl scale-105"
                     : "bg-white/80 text-gray-900 hover:bg-[#a3b897]/80 hover:scale-105"
-                }`}
+                  }`}
               >
                 <motion.div
                   className={`text-[#6c845d] ${activeIndex === index ? "text-white" : ""}`}
