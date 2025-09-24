@@ -108,7 +108,7 @@ export default function WebDevelopment() {
 
       {/* WHAT WE BUILD */}
       <section className="max-w-7xl mx-auto px-6 py-14">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">What we build</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">What we <span className="text-[#6c845d]">build</span></h2>
         <p className="text-gray-700 max-w-3xl mb-12">
           From marketing landing pages to full-featured web apps — we cover the full product lifecycle.
         </p>
@@ -141,7 +141,7 @@ export default function WebDevelopment() {
       {/* TECH STACK */}
       <section className="py-14">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Technologies we use</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Technologies <span className="text-[#6c845d]">we use</span></h2>
           <p className="text-gray-700 max-w-3xl mb-12">
             We pick pragmatic tech: keep the stack lean, standard and easy to maintain.
           </p>

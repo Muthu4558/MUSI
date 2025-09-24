@@ -106,7 +106,7 @@ export default function DataAnalytics() {
 
       {/* SERVICES */}
       <section className="max-w-7xl mx-auto px-6 py-14">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">What we do</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">What <span className="text-[#6c845d]">we do</span></h2>
         <p className="text-gray-700 max-w-3xl mb-12">
           From cleaning raw data to creating business insights — our analytics services cover end-to-end data solutions.
         </p>
@@ -134,7 +134,7 @@ export default function DataAnalytics() {
       {/* TOOLS */}
       <section className="py-14">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Tools We Use</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Tools <span className="text-[#6c845d]">We Use</span></h2>
           <p className="text-gray-700 max-w-3xl mb-12">
             Our analytics work relies on modern, industry-standard tools for data processing, visualization, and reporting.
           </p>
@@ -159,7 +159,7 @@ export default function DataAnalytics() {
 
       {/* PROCESS */}
       <section className="max-w-7xl mx-auto px-6 py-14">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Process</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our <span className="text-[#6c845d]">Process</span></h2>
         <div className="grid md:grid-cols-5 gap-6">
           {processSteps.map((s, i) => (
             <motion.div
@@ -180,7 +180,7 @@ export default function DataAnalytics() {
       </section>
 
       {/* PROJECT GALLERY */}
-      <section id="projects" className="bg-white/10 py-14">
+      {/* <section id="projects" className="bg-white/10 py-14">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Selected Projects</h2>
           <p className="text-gray-700 mb-8">
@@ -203,7 +203,7 @@ export default function DataAnalytics() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <footer id="contact" className="py-16 px-6">

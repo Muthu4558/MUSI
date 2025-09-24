@@ -83,7 +83,7 @@ export default function GraphicDesign() {
 
       {/* WHAT WE BUILD */}
       <section className="max-w-7xl mx-auto px-6 py-14">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">What we design</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">What we <span className="text-[#6c845d]">design</span></h2>
         <p className="text-gray-700 max-w-3xl mb-12">
           From logos to print materials — we provide creative solutions for all your branding needs.
         </p>
@@ -116,7 +116,7 @@ export default function GraphicDesign() {
       {/* TOOLS */}
       <section className="py-14">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Tools we use</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Tools <span className="text-[#6c845d]">we use</span></h2>
           <p className="text-gray-700 max-w-3xl mb-12">
             Professional software for designing high-quality visuals and branding assets.
           </p>

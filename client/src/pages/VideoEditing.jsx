@@ -85,7 +85,7 @@ export default function VideoEditing() {
 
       {/* WHAT WE BUILD */}
       <section className="max-w-7xl mx-auto px-6 py-14">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">What we create</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">What we <span className="text-[#6c845d]">create</span></h2>
         <p className="text-gray-700 max-w-3xl mb-12">
           Engaging content for all platforms — we handle the full video production lifecycle.
         </p>
@@ -118,7 +118,7 @@ export default function VideoEditing() {
       {/* TOOLS */}
       <section className="py-14">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Tools we use</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Tools <span className="text-[#6c845d]">we use</span></h2>
           <p className="text-gray-700 max-w-3xl mb-12">
             Our workflow uses professional software for video editing, color grading, motion graphics, and audio polishing.
           </p>
@@ -143,7 +143,7 @@ export default function VideoEditing() {
 
       {/* PROCESS */}
       <section className="max-w-7xl mx-auto px-6 py-14">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our process — simple & transparent</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our process — <span className="text-[#6c845d]">simple & transparent</span></h2>
         <div className="grid md:grid-cols-5 gap-6">
           {processSteps.map((s, i) => (
             <motion.div
@@ -164,7 +164,7 @@ export default function VideoEditing() {
       </section>
 
       {/* PROJECT GALLERY */}
-      <section id="projects" className="bg-white/5 py-14">
+      {/* <section id="projects" className="bg-white/5 py-14">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Selected Work</h2>
           <p className="text-gray-700 mb-8">
@@ -187,7 +187,7 @@ export default function VideoEditing() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <footer id="contact" className="py-16 px-6">
