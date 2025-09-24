@@ -29,7 +29,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-26">
+    <section className="relative flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-26 mt-24">
       {/* Toast Container */}
       <Toaster position="bottom-right" reverseOrder={false} />
       {/* Left Side Content */}

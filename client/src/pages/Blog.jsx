@@ -27,7 +27,7 @@ const blogs = [
 
 const Blog = () => {
     return (
-        <div className="font-poppins text-gray-900">
+        <div className="font-poppins text-gray-900 mt-26">
             {/* Hero Section */}
             <section className="relative flex flex-col items-center justify-center text-center py-24 sm:py-32 md:py-50 px-4 sm:px-6 md:px-12">
                 <motion.h1

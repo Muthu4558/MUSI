@@ -6,7 +6,7 @@ const About = () => {
     <div className="text-gray-900 font-poppins overflow-hidden">
 
       {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center text-center py-24 sm:py-32 md:py-40 px-4 sm:px-6 md:px-12">
+      <section className="relative flex flex-col items-center justify-center text-center py-24 sm:py-32 md:py-40 px-4 sm:px-6 md:px-12 mt-24">
         <motion.h1
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}

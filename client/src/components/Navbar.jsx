@@ -1,13 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { ChevronDown, Code, Palette, BarChart3, Layout, Video } from "lucide-react"; 
+import { ChevronDown, Code, Palette, BarChart3, Layout, Video } from "lucide-react";
 import Logo from "../assets/MusiTechHub_logo-1.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [serviceOpen, setServiceOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const navigate = useNavigate();
+
+  // Scroll listener (applies to whole page)
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        // scrolling down → hide navbar
+        setShowNavbar(false);
+      } else {
+        // scrolling up → show navbar
+        setShowNavbar(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
 
   const services = [
     { name: "Web Development", icon: <Code size={18} />, path: "/web-development" },
@@ -20,16 +40,20 @@ const Navbar = () => {
   return (
     <motion.nav
       initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      animate={{
+        y: showNavbar ? 0 : -100, // hide/show
+        opacity: showNavbar ? 1 : 0,
+      }}
       transition={{ type: "spring", stiffness: 70, damping: 12 }}
-      className="max-w-7xl mx-auto mt-4 px-6 md:px-12 py-4
+      className="fixed top-0 left-0 right-0 z-50 
+      max-w-7xl mx-auto mt-4 px-6 md:px-12 py-4
       backdrop-blur-md rounded-2xl shadow-lg 
-      flex items-center justify-between border border-black relative z-30"
+      flex items-center justify-between border border-black"
     >
       {/* Logo */}
       <motion.div whileHover={{ scale: 1.05 }} onClick={() => navigate("/")}>
         <img
-          src={Logo} 
+          src={Logo}
           alt="Logo"
           className="h-14 object-contain drop-shadow-md cursor-pointer"
         />
@@ -54,35 +78,47 @@ const Navbar = () => {
         ))}
 
         {/* Services Dropdown */}
-        <motion.li
-          whileHover={{ scale: 1.05 }}
-          className="group relative cursor-pointer"
-        >
-          <div className="flex items-center gap-1">
-            Services
-            <ChevronDown
-              size={16}
-              className="transition-transform group-hover:rotate-180"
-            />
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="absolute hidden group-hover:block top-8 left-0 w-60 bg-white/95 text-black rounded-xl shadow-lg overflow-hidden"
+        {/* Services Dropdown */}
+<motion.li
+  className="relative cursor-pointer"
+  onMouseEnter={() => setServiceOpen(true)}
+  onMouseLeave={() => setServiceOpen(false)}
+>
+  <div className="flex items-center gap-1">
+    Services
+    <ChevronDown
+      size={16}
+      className={`transition-transform ${serviceOpen ? "rotate-180" : ""}`}
+    />
+  </div>
+
+  {/* Dropdown */}
+  <AnimatePresence>
+    {serviceOpen && (
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.25, ease: "easeInOut" }}
+        className="absolute top-8 left-0 w-60 bg-white/95 text-black rounded-xl shadow-lg overflow-hidden z-50"
+      >
+        {services.map((item, idx) => (
+          <motion.p
+            key={idx}
+            // whileHover={{ scale: 1.03, x: 6 }}
+            className="flex items-center gap-3 px-5 py-3 hover:bg-[#6c845d] hover:text-white transition-all cursor-pointer"
+            onClick={() => navigate(item.path)}
           >
-            {services.map((item, idx) => (
-              <motion.p
-                key={idx}
-                className="flex items-center gap-3 px-5 py-3 hover:bg-[#6c845d] hover:text-white transition-all cursor-pointer"
-                onClick={() => navigate(item.path)}
-              >
-                {item.icon}
-                {item.name}
-              </motion.p>
-            ))}
-          </motion.div>
-        </motion.li>
+            {item.icon}
+            {item.name}
+          </motion.p>
+        ))}
+      </motion.div>
+    )}
+  </AnimatePresence>
+</motion.li>
+
+
       </ul>
 
       {/* Contact Button */}
