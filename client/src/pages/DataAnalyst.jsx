@@ -36,7 +36,7 @@ const processSteps = [
 
 export default function DataAnalytics() {
   return (
-    <div className="font-poppins antialiased text-gray-900" style={{ background: "linear-gradient(135deg, #f0f3ec 0%, #d4e0c0 50%, #6c845d 100%)" }}>
+    <div className="mt-24 font-poppins antialiased text-gray-900" style={{ background: "linear-gradient(135deg, #f0f3ec 0%, #d4e0c0 50%, #6c845d 100%)" }}>
 
       {/* HERO */}
       <header className="relative overflow-hidden">
