@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 });
 
 export const submitContactForm = async (req, res) => {
-  const { name, email, message, phone } = req.body;
+  const { name, email, message, phone, company } = req.body;
 
   if (!name || !email || !message) {
     return res.status(400).json({ message: "Please fill all required fields." });
@@ -21,7 +21,7 @@ export const submitContactForm = async (req, res) => {
 
   try {
     // Save to database
-    const newContact = await Contact.create({ name, email, message, phone });
+    const newContact = await Contact.create({ name, email, message, phone, company });
 
     // Email to user
     await transporter.sendMail({
@@ -30,6 +30,8 @@ export const submitContactForm = async (req, res) => {
       subject: "Thank you for contacting MusiTechHub",
       html: `<p>Hi ${name},</p>
              <p>Thank you for reaching out. We have received your message:</p>
+             <p>Company: ${company || "N/A"}</p>
+             <p>Phone: ${phone || "N/A"}</p>
              <blockquote>${message}</blockquote>
              <p>We will get back to you shortly.</p>
              <p>Best regards,<br/>MusiTechHub Team</p>`,
@@ -43,6 +45,7 @@ export const submitContactForm = async (req, res) => {
       html: `<p>New contact form submitted:</p>
              <p><strong>Name:</strong> ${name}</p>
              <p><strong>Email:</strong> ${email}</p>
+             <p><strong>Company:</strong> ${company || "N/A"}</p>
              <p><strong>Phone:</strong> ${phone || "N/A"}</p>
              <p><strong>Message:</strong><br/>${message}</p>`,
     });

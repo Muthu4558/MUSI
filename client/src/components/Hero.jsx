@@ -6,7 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "", company: "", phone: "" });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
 
@@ -20,7 +20,7 @@ const Hero = () => {
       const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/contact`, formData);
       toast.success(data.message || "Message sent successfully!");
       // setSuccess(data.message);
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({ name: "", email: "", message: "", company: "", phone: "", });
     } catch (err) {
       console.error(err.response?.data?.message || err.message);
     } finally {
@@ -81,6 +81,23 @@ const Hero = () => {
               <h2 className="text-3xl font-bold mb-6 text-gray-900 text-center">Get Started</h2>
               <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
                 <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} className="border border-gray-300 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#6c845d] shadow-sm" required />
+                <input
+                  type="text"
+                  name="company"
+                  placeholder="Your Company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  className="border border-gray-300 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#6c845d] shadow-sm"
+                />
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="Your Contact Number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="border border-gray-300 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#6c845d] shadow-sm"
+                />
+
                 <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleChange} className="border border-gray-300 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#6c845d] shadow-sm" required />
                 <textarea name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} className="border border-gray-300 rounded-xl px-5 py-3 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-[#6c845d] shadow-sm" required></textarea>
                 <button type="submit" className="px-6 py-3 bg-gradient-to-r from-[#6c845d] to-[#d4e0c0] text-white font-semibold rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition-all">

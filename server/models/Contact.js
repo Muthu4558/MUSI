@@ -5,7 +5,8 @@ const contactSchema = new mongoose.Schema(
     name: { type: String, required: true },
     email: { type: String, required: true },
     message: { type: String, required: true },
-    phone: { type: String }, // optional
+    company: { type: String }, // NEW field
+    phone: { type: String },   // already exists
   },
   { timestamps: true }
 );

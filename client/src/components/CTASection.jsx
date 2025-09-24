@@ -5,7 +5,7 @@ import { PhoneCall, Mail, Linkedin, Twitter, Instagram, Send } from "lucide-reac
 import toast, { Toaster } from "react-hot-toast";
 
 const ContactCTASection = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "", company: "", phone: "", });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
 
@@ -20,7 +20,7 @@ const ContactCTASection = () => {
       const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/contact`, formData);
       toast.success(data.message || "Message sent successfully!");
       // setSuccess(data.message);
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({ name: "", email: "", message: "", company: "", phone: "", });
     } catch (err) {
       console.error(err.response?.data?.message || err.message);
     } finally {
@@ -83,24 +83,49 @@ const ContactCTASection = () => {
           </h3>
 
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              className="p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#6c845d] outline-none"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
-              className="p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#6c845d] outline-none"
-              required
-            />
+            {/* Row 1: Name + Company */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                className="p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#6c845d] outline-none w-full"
+                required
+              />
+              <input
+                type="text"
+                name="company"
+                placeholder="Your Company"
+                value={formData.company}
+                onChange={handleChange}
+                className="p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#6c845d] outline-none w-full"
+              />
+            </div>
+
+            {/* Row 2: Phone + Email */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input
+                type="text"
+                name="phone"
+                placeholder="Your Contact Number"
+                value={formData.phone}
+                onChange={handleChange}
+                className="p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#6c845d] outline-none w-full"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                className="p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#6c845d] outline-none w-full"
+                required
+              />
+            </div>
+
+            {/* Message */}
             <textarea
               name="message"
               placeholder="Your Message"
@@ -110,6 +135,8 @@ const ContactCTASection = () => {
               className="p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#6c845d] outline-none"
               required
             ></textarea>
+
+            {/* Submit Button */}
             <motion.button
               type="submit"
               whileHover={{ scale: 1.05 }}
@@ -119,7 +146,6 @@ const ContactCTASection = () => {
             >
               {loading ? "Sending..." : "Send Message"}
             </motion.button>
-            {success && <p className="text-green-600 mt-2">{success}</p>}
           </form>
 
           {/* Contact Info */}
