@@ -1,7 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = (path) => {
+      navigate(path);
+      window.scrollTo({ top:0, left:0, behavior: "smooth"})
+  };
+
   return (
     <div className="text-gray-900 font-poppins overflow-hidden">
 
@@ -110,7 +118,9 @@ const About = () => {
           <p className="mb-6 sm:mb-10 text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-2">
             Trust us with your project and let's create something amazing together.
           </p>
-          <button className="bg-white text-[#6c845d] font-semibold px-8 sm:px-12 py-3 sm:py-4 rounded-full hover:bg-gray-200 transition-all shadow-lg hover:scale-105 text-base sm:text-lg">
+          <button 
+            onClick={ () => handleNavigate("/contact")}
+            className="bg-white text-[#6c845d] font-semibold px-8 sm:px-12 py-3 sm:py-4 rounded-full hover:bg-gray-200 transition-all shadow-lg hover:scale-105 text-base sm:text-lg">
             Get in Touch
           </button>
         </motion.div>
