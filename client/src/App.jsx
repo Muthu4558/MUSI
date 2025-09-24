@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar";
 import LandingPage from "./pages/LandingPage";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
-// import Contact from "./pages/Contact";
 import ContactCTASection from "./components/CTASection";
 import Footer from "./components/Footer";
 import WebDevelopment from "./pages/WebDevelopment";
@@ -11,6 +10,7 @@ import GraphicDesign from "./pages/GraphicDesign";
 import DataAnalyst from "./pages/DataAnalyst";
 import UIUX from "./pages/UIUX";
 import VideoEditing from "./pages/VideoEditing";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 const App = () => {
   return (
@@ -28,6 +28,10 @@ const App = () => {
         <Route path="/video-editing" element={<VideoEditing />} />
       </Routes>
       <Footer />
+      <WhatsAppButton 
+        phone="6385931500" 
+        message="Hello! I want to chat about your services." 
+      />
     </Router>
   );
 };
