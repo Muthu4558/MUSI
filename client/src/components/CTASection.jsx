@@ -151,7 +151,7 @@ const ContactCTASection = () => {
           {/* Contact Info */}
           <div className="mt-6 flex flex-col gap-3 text-gray-800">
             <p className="flex items-center gap-2">
-              <Mail size={20} /> contact@yourdomain.com
+              <Mail size={20} /> info@musitechhub.com
             </p>
             <p className="flex items-center gap-2">
               <PhoneCall size={20} /> +91 6385 931 500

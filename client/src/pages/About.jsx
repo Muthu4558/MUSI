@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import VisionImg from "../assets/vision.png"
 
 const About = () => {
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ const About = () => {
             className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl group"
           >
             <img
-              src="https://images.unsplash.com/photo-1581091012184-52d372df8d59?auto=format&fit=crop&w=800&q=80"
+              src={VisionImg}
               alt="Vision illustration"
               className="object-cover w-full h-[250px] sm:h-[350px] md:h-full transform group-hover:scale-105 transition-transform duration-700"
             />

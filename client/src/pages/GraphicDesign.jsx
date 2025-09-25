@@ -1,8 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Code, Monitor, Server, Database, Zap, Rocket, Layers } from "lucide-react";
+import GraphicImg from "../assets/Graphic/graphicdesignimg.png"
 
-const heroImg = "https://images.unsplash.com/photo-1581091012184-ecff0fce7d88?auto=format&fit=crop&w=1400&q=80"; // graphic design hero
+const heroImg = GraphicImg;
 const projectImgs = [
   "https://images.unsplash.com/photo-1581091012184-ecff0fce7d88?auto=format&fit=crop&w=1200&q=80",
   "https://images.unsplash.com/photo-1612831818020-5eae9d2f6f69?auto=format&fit=crop&w=1200&q=80",
@@ -26,7 +27,7 @@ const processSteps = [
 
 export default function GraphicDesign() {
   return (
-    <div className="mt-24 font-poppins antialiased text-gray-900" style={{ background: "linear-gradient(135deg, #f0f3ec 0%, #d4e0c0 50%, #6c845d 100%)" }}>
+    <div className="mt-16 font-poppins antialiased text-gray-900" style={{ background: "linear-gradient(135deg, #f0f3ec 0%, #d4e0c0 50%, #6c845d 100%)" }}>
 
       {/* HERO */}
       <header className="relative overflow-hidden">
@@ -66,18 +67,31 @@ export default function GraphicDesign() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ scale: 0.98, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="rounded-3xl overflow-hidden shadow-2xl"
-          >
-            <img
+          <div className="relative flex justify-center items-center">
+            <motion.div
+              animate={{
+                scale: [1, 1.1, 1],
+                rotate: [0, 10, -10, 0],
+                x: [0, 10, -10, 0],
+                y: [0, -10, 10, 0],
+              }}
+              transition={{
+                duration: 12,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute w-72 h-72 md:w-96 md:h-96 bg-gradient-to-tr from-[#6c845d] to-[#d4e0c0] rounded-full blur-2xl opacity-70"
+            ></motion.div>
+
+            <motion.img
               src={heroImg}
-              alt="graphic design hero"
-              className="w-full h-[420px] object-cover"
+              alt="Digital Solutions"
+              className="relative w-[32rem] h-[32rem] md:w-[36rem] md:h-[32rem] object-contain z-10 drop-shadow-xl"
+              animate={{ y: [0, -16, 0] }}   // a bit larger bounce to match the size
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
-          </motion.div>
+
+          </div>
         </div>
       </header>
 
@@ -90,10 +104,10 @@ export default function GraphicDesign() {
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { title: "Logo Design", desc: "Brand identity & memorable logos", icon: <Code size={24}/> },
-            { title: "Branding", desc: "Complete visual identity systems", icon: <Monitor size={24}/> },
-            { title: "Print Design", desc: "Brochures, flyers, posters", icon: <Server size={24}/> },
-            { title: "Marketing Collateral", desc: "Business cards, banners, etc.", icon: <Zap size={24}/> },
+            { title: "Logo Design", desc: "Brand identity & memorable logos", icon: <Code size={24} /> },
+            { title: "Branding", desc: "Complete visual identity systems", icon: <Monitor size={24} /> },
+            { title: "Print Design", desc: "Brochures, flyers, posters", icon: <Server size={24} /> },
+            { title: "Marketing Collateral", desc: "Business cards, banners, etc.", icon: <Zap size={24} /> },
           ].map((card) => (
             <motion.div
               key={card.title}

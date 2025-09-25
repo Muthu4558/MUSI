@@ -1,8 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Code, Monitor, Server, Database, Zap, Rocket, Layers } from "lucide-react";
+import GraphicImg from "../assets/Graphic/graphicdesignimg.png"
 
-const heroImg = "https://images.unsplash.com/photo-1526244434298-88fcbcb066b5?auto=format&fit=crop&w=1400&q=80";
+const heroImg = GraphicImg;
 
 const uiuxServices = [
     { title: "User-Centered Design", desc: "Design focused on user needs and behaviors", icon: <Monitor size={24} /> },
@@ -21,7 +22,7 @@ const uiuxTools = [
 
 export default function UIUXDevelopment() {
     return (
-        <div className="mt-24 font-poppins antialiased text-gray-900" style={{ background: "linear-gradient(135deg, #f0f3ec 0%, #d4e0c0 50%, #6c845d 100%)" }}>
+        <div className="mt-16 font-poppins antialiased text-gray-900" style={{ background: "linear-gradient(135deg, #f0f3ec 0%, #d4e0c0 50%, #6c845d 100%)" }}>
 
             {/* HERO */}
             <header className="relative overflow-hidden">
@@ -61,18 +62,31 @@ export default function UIUXDevelopment() {
                         </div>
                     </motion.div>
 
-                    <motion.div
-                        initial={{ scale: 0.98, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 0.8 }}
-                        className="rounded-3xl overflow-hidden shadow-2xl"
-                    >
-                        <img
-                            src={heroImg}
-                            alt="UI/UX design hero"
-                            className="w-full h-[420px] object-cover"
-                        />
-                    </motion.div>
+                    <div className="relative flex justify-center items-center">
+                                <motion.div
+                                  animate={{
+                                    scale: [1, 1.1, 1],
+                                    rotate: [0, 10, -10, 0],
+                                    x: [0, 10, -10, 0],
+                                    y: [0, -10, 10, 0],
+                                  }}
+                                  transition={{
+                                    duration: 12,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                  }}
+                                  className="absolute w-72 h-72 md:w-96 md:h-96 bg-gradient-to-tr from-[#6c845d] to-[#d4e0c0] rounded-full blur-2xl opacity-70"
+                                ></motion.div>
+                    
+                                <motion.img
+                                  src={heroImg}
+                                  alt="Digital Solutions"
+                                  className="relative w-[32rem] h-[32rem] md:w-[36rem] md:h-[32rem] object-contain z-10 drop-shadow-xl"
+                                  animate={{ y: [0, -16, 0] }}   // a bit larger bounce to match the size
+                                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                />
+                    
+                              </div>
                 </div>
             </header>
 

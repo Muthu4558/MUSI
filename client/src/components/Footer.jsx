@@ -1,5 +1,5 @@
 import { Instagram, Linkedin, Twitter, MapPin, Phone, Mail } from "lucide-react";
-import Logo from "../assets/MusiTechHub_logo-1.png"; // use your uploaded logo
+import Logo from "../assets/MusiTechHub_logo-1.png"; 
 import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
@@ -9,6 +9,7 @@ const Footer = () => {
     navigate(path);
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" }); // scroll to top smoothly
   };
+
   return (
     <footer className="bg-[#1f1f1f] text-gray-200 py-12 px-6 sm:px-8 md:px-12">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12">
@@ -34,17 +35,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Column 2: Services */}
-        <div className="flex flex-col gap-3">
-          <h4 className="text-xl font-bold text-white mb-2">Services</h4>
-          {["Web Development", "Data Analyst", "Graphic Design", "UI/UX", "Video Editing"].map((service, idx) => (
-            <p key={idx} className="cursor-pointer hover:text-[#6c845d] transition-colors text-sm sm:text-base">
-              {service}
-            </p>
-          ))}
-        </div>
-
-        {/* Column 3: Social Media */}
+        {/* Column 2: Quick Links */}
         <div className="flex flex-col gap-3">
           <h4 className="text-xl font-bold text-white mb-2">Quick Links</h4>
 
@@ -70,14 +61,49 @@ const Footer = () => {
           </p>
         </div>
 
+        {/* Column 3: Services */}
+        <div className="flex flex-col gap-3">
+          <h4 className="text-xl font-bold text-white mb-2">Services</h4>
+          <p
+            className="cursor-pointer hover:text-[#6c845d] transition-colors text-sm sm:text-base"
+            onClick={() => handleNavigate("/web-development")}
+          >
+            Web Development
+          </p>
+          <p
+            className="cursor-pointer hover:text-[#6c845d] transition-colors text-sm sm:text-base"
+            onClick={() => handleNavigate("/data-analyst")}
+          >
+            Data Analyst
+          </p>
+          <p
+            className="cursor-pointer hover:text-[#6c845d] transition-colors text-sm sm:text-base"
+            onClick={() => handleNavigate("/graphic-design")}
+          >
+            Graphic Design
+          </p>
+          <p
+            className="cursor-pointer hover:text-[#6c845d] transition-colors text-sm sm:text-base"
+            onClick={() => handleNavigate("/ui-ux")}
+          >
+            UI/UX
+          </p>
+          <p
+            className="cursor-pointer hover:text-[#6c845d] transition-colors text-sm sm:text-base"
+            onClick={() => handleNavigate("/video-editing")}
+          >
+            Video Editing
+          </p>
+        </div>
+
         {/* Column 4: Contact */}
         <div className="flex flex-col gap-3">
           <h4 className="text-xl font-bold text-white mb-2">Contact Us</h4>
           <p className="flex items-start sm:items-center gap-2 text-sm sm:text-base">
-            <MapPin size={18} /> 123, Music Street, Chennai, India
+            <MapPin size={44} /> Ratnam Street, Eshwari Nagar, Medical College Road, Thanjavur, India
           </p>
           <p className="flex items-center gap-2 text-sm sm:text-base"><Phone size={18} /> +91 6385 931 500</p>
-          <p className="flex items-center gap-2 text-sm sm:text-base"><Mail size={18} /> contact@musitechhub.com</p>
+          <p className="flex items-center gap-2 text-sm sm:text-base"><Mail size={18} /> info@musitechhub.com</p>
 
           <h4 className="text-xl font-bold text-white mb-2 mt-5">Follow Us</h4>
           <div className="flex gap-4">

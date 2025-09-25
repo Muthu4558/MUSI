@@ -36,7 +36,7 @@ const processSteps = [
 
 export default function DataAnalytics() {
   return (
-    <div className="mt-24 font-poppins antialiased text-gray-900" style={{ background: "linear-gradient(135deg, #f0f3ec 0%, #d4e0c0 50%, #6c845d 100%)" }}>
+    <div className="mt-16 font-poppins antialiased text-gray-900" style={{ background: "linear-gradient(135deg, #f0f3ec 0%, #d4e0c0 50%, #6c845d 100%)" }}>
 
       {/* HERO */}
       <header className="relative overflow-hidden">
@@ -96,7 +96,7 @@ export default function DataAnalytics() {
             <motion.img
               src={heroImg}
               alt="Digital Solutions"
-              className="relative w-96 h-96 md:w-96 md:h-96 object-contain z-10 drop-shadow-xl"
+              className="relative w-[32rem] h-[32rem] md:w-[36rem] md:h-[32rem] object-contain z-10 drop-shadow-xl"
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
