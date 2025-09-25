@@ -158,7 +158,7 @@ const ContactCTASection = () => {
             </p>
             <div className="flex items-center gap-4 mt-2">
               <a href="#" className="text-gray-700 hover:text-[#6c845d]"><Linkedin size={24} /></a>
-              <a href="#" className="text-gray-700 hover:text-[#6c845d]"><Twitter size={24} /></a>
+              {/* <a href="#" className="text-gray-700 hover:text-[#6c845d]"><Twitter size={24} /></a> */}
               <a href="#" className="text-gray-700 hover:text-[#6c845d]"><Instagram size={24} /></a>
             </div>
           </div>

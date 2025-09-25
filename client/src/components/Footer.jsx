@@ -113,9 +113,9 @@ const Footer = () => {
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
               <Linkedin size={24} className="hover:text-[#6c845d] transition-colors" />
             </a>
-            <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+            {/* <a href="https://x.com" target="_blank" rel="noopener noreferrer">
               <Twitter size={24} className="hover:text-[#6c845d] transition-colors" />
-            </a>
+            </a> */}
           </div>
         </div>
 
