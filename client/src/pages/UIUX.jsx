@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Code, Monitor, Server, Database, Zap, Rocket, Layers } from "lucide-react";
-import GraphicImg from "../assets/Graphic/graphicdesignimg.png"
+import UIUXImg from "../assets/UI_UX/ui-ux.png"
 
-const heroImg = GraphicImg;
+const heroImg = UIUXImg;
 
 const uiuxServices = [
     { title: "User-Centered Design", desc: "Design focused on user needs and behaviors", icon: <Monitor size={24} /> },

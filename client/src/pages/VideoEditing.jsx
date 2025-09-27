@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Code, Monitor, Server, Database, Zap, Rocket, Layers } from "lucide-react";
-import GraphicImg from "../assets/Graphic/graphicdesignimg.png"
+import VideoImg from "../assets/Video_editing/videoediting.png"
 
-const heroImg = GraphicImg ;
+const heroImg = VideoImg ;
 const projectImgs = [
   "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=1200&q=80",
   "https://images.unsplash.com/photo-1590608897129-79f63f1d8f2a?auto=format&fit=crop&w=1200&q=80",
