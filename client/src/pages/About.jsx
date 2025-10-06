@@ -48,14 +48,14 @@ const About = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl group"
+            className="relative rounded-2xl sm:rounded-3xl overflow-hidden group"
           >
             <img
               src={VisionImg}
               alt="Vision illustration"
               className="object-cover w-full h-[250px] sm:h-[350px] md:h-full transform group-hover:scale-105 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#6c845d]/40 to-transparent"></div>
+            {/* <div className="absolute inset-0 bg-gradient-to-t from-[#6c845d]/40 to-transparent"></div> */}
           </motion.div>
 
           {/* Text */}
