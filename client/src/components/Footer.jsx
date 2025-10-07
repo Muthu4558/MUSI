@@ -103,7 +103,7 @@ const Footer = () => {
             <MapPin size={44} /> Ratnam Street, Eshwari Nagar, Medical College Road, Thanjavur, India
           </p>
           <p className="flex items-center gap-2 text-sm sm:text-base"><Phone size={18} /> +91 6385 931 500</p>
-          <p className="flex items-center gap-2 text-sm sm:text-base"><Mail size={18} /> info@musitechhub.com</p>
+          <p className="flex items-center gap-2 text-sm sm:text-base"><Mail size={18} /> muthukdm45@gmail.com</p>
 
           <h4 className="text-xl font-bold text-white mb-2 mt-5">Follow Us</h4>
           <div className="flex gap-4">

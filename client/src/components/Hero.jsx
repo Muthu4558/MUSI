@@ -35,7 +35,7 @@ const Hero = () => {
       {/* Left Side Content */}
       <motion.div initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="md:w-1/2 text-center md:text-left">
         <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-          Where Ideas <span className="text-[#6c845d]">Meet Technology hhhh</span>
+          Where Ideas <span className="text-[#6c845d]">Meet Technology</span>
         </h1>
         <p className="text-lg text-gray-700 mb-8 max-w-md mx-auto md:mx-0">
           Turning ideas into digital experiences that inspire. At MusiTechHub, we blend creativity, technology, and strategy to help your brand stand out.
