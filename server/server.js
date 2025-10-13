@@ -10,23 +10,13 @@ connectDB();
 
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://musitechhub.onrender.com"
-];
+// const allowedOrigins = [
+//   "http://localhost:5173",
+//   "https://musitechhub.onrender.com"
+// ];
 
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    } else {
-      console.log("❌ Blocked by CORS:", origin);
-      return callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-}));
+app.use(cors({ origin: "*", credentials: true }));
+
 
 
 app.use(express.json());
