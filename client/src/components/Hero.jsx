@@ -78,7 +78,7 @@ const Hero = () => {
               <button className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 font-bold text-2xl" onClick={() => setIsModalOpen(false)}>
                 &times;
               </button>
-              <h2 className="text-3xl font-bold mb-6 text-gray-900 text-center">Get Started</h2>
+              <h2 className="text-3xl font-bold mb-6 text-gray-900 text-center">Get <span className="text-[#6c845d]">Started</span></h2>
               <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
                 <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} className="border border-gray-300 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#6c845d] shadow-sm" required />
                 <input
