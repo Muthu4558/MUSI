@@ -52,7 +52,7 @@ export const submitContactForm = async (req, res) => {
 
     res.status(201).json({ message: "Message sent successfully!", contact: newContact });
   } catch (error) {
-    console.error(error);
+    console.error("🔥 Contact form error:", error);
     res.status(500).json({ message: "Server error", error: error.message });
   }
 };
