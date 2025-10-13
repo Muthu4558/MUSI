@@ -151,15 +151,15 @@ const ContactCTASection = () => {
           {/* Contact Info */}
           <div className="mt-6 flex flex-col gap-3 text-gray-800">
             <p className="flex items-center gap-2">
-              <Mail size={20} /> muthukdm45@gmail.com
+              <Mail size={20} /> info.musitechhub@gmail.com
             </p>
             <p className="flex items-center gap-2">
               <PhoneCall size={20} /> +91 6385 931 500
             </p>
             <div className="flex items-center gap-4 mt-2">
-              <a href="#" className="text-gray-700 hover:text-[#6c845d]"><Linkedin size={24} /></a>
+              <a href="https://www.linkedin.com/company/musitechhub/about/?viewAsMember=true" className="text-gray-700 hover:text-[#6c845d]"><Linkedin size={24} /></a>
               {/* <a href="#" className="text-gray-700 hover:text-[#6c845d]"><Twitter size={24} /></a> */}
-              <a href="#" className="text-gray-700 hover:text-[#6c845d]"><Instagram size={24} /></a>
+              <a href="https://www.instagram.com/musitechhub?utm_source=qr&igsh=MTlhY2dkd3FybGN2bQ==" className="text-gray-700 hover:text-[#6c845d]"><Instagram size={24} /></a>
             </div>
           </div>
         </div>
