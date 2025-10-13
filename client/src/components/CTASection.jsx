@@ -79,7 +79,7 @@ const ContactCTASection = () => {
         {/* Right: Contact Form + Info */}
         <div className="lg:w-1/2 bg-white/90 backdrop-blur-md rounded-3xl p-10 shadow-xl flex flex-col gap-6">
           <h3 className="text-3xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-            Get in Touch <Send size={20} />
+            Get in <span className="text-[#6c845d]">Touch</span> <Send size={20} />
           </h3>
 
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
