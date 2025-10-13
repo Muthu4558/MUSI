@@ -1,18 +1,7 @@
 import Contact from "../models/Contact.js";
-import nodemailer from "nodemailer";
 import dotenv from "dotenv";
+import fetch from "node-fetch";
 dotenv.config();
-
-// Configure Nodemailer transporter
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true, // use SSL
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
 
 export const submitContactForm = async (req, res) => {
   const { name, email, message, phone, company } = req.body;
@@ -22,36 +11,55 @@ export const submitContactForm = async (req, res) => {
   }
 
   try {
-    // Save to database
+    // 1️⃣ Save contact in database
     const newContact = await Contact.create({ name, email, message, phone, company });
 
-    // Email to user
-    await transporter.sendMail({
-      from: `"MusiTechHub" <${process.env.EMAIL_USER}>`,
-      to: email,
-      subject: "Thank you for contacting MusiTechHub",
-      html: `<p>Hi ${name},</p>
-             <p>Thank you for reaching out. We have received your message:</p>
-             <p>Company: ${company || "N/A"}</p>
-             <p>Phone: ${phone || "N/A"}</p>
-             <blockquote>${message}</blockquote>
-             <p>We will get back to you shortly.</p>
-             <p>Best regards,<br/>MusiTechHub Team</p>`,
+    // 2️⃣ Email to user
+    await fetch("https://api.brevo.com/v3/smtp/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "api-key": process.env.BREVO_API_KEY,
+      },
+      body: JSON.stringify({
+        sender: { name: "MusiTechHub", email: process.env.SENDER_EMAIL },
+        to: [{ email }],
+        subject: "Thank you for contacting MusiTechHub",
+        htmlContent: `
+          <p>Hi ${name},</p>
+          <p>Thank you for reaching out. We have received your message:</p>
+          <p><b>Company:</b> ${company || "N/A"}</p>
+          <p><b>Phone:</b> ${phone || "N/A"}</p>
+          <blockquote>${message}</blockquote>
+          <p>We will get back to you shortly.</p>
+          <p>Best regards,<br/>MusiTechHub Team</p>
+        `,
+      }),
     });
 
-    // Email to admin
-    await transporter.sendMail({
-      from: `"MusiTechHub Website" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER,
-      subject: "New Contact Form Submission",
-      html: `<p>New contact form submitted:</p>
-             <p><strong>Name:</strong> ${name}</p>
-             <p><strong>Email:</strong> ${email}</p>
-             <p><strong>Company:</strong> ${company || "N/A"}</p>
-             <p><strong>Phone:</strong> ${phone || "N/A"}</p>
-             <p><strong>Message:</strong><br/>${message}</p>`,
+    // 3️⃣ Email to admin
+    await fetch("https://api.brevo.com/v3/smtp/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "api-key": process.env.BREVO_API_KEY,
+      },
+      body: JSON.stringify({
+        sender: { name: "MusiTechHub Website", email: process.env.SENDER_EMAIL },
+        to: [{ email: process.env.SENDER_EMAIL }],
+        subject: "New Contact Form Submission",
+        htmlContent: `
+          <p><b>Name:</b> ${name}</p>
+          <p><b>Email:</b> ${email}</p>
+          <p><b>Company:</b> ${company || "N/A"}</p>
+          <p><b>Phone:</b> ${phone || "N/A"}</p>
+          <p><b>Message:</b></p>
+          <blockquote>${message}</blockquote>
+        `,
+      }),
     });
 
+    // 4️⃣ Send success response
     res.status(201).json({ message: "Message sent successfully!", contact: newContact });
   } catch (error) {
     console.error("🔥 Contact form error:", error);
